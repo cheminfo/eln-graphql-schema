@@ -1,0 +1,29 @@
+type Sample {
+    spectra: Spectra
+}
+
+type Spectra {
+    nmr: [NmrSpectrum]
+}
+
+type NmrSpectrum {
+    description: String
+    solvent: String
+    temperature: Float
+    frequency: Float
+    nucleus: [NmrNucleus]
+    date: Float
+    dimension: Int
+    experiment: String
+    pulse: String
+    signal: [NmrSignal]
+}
+
+type NmrNucleus {
+
+}
+
+type NmrSignal {
+    delta: Float
+    multiplicity: String
+}
