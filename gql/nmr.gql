@@ -3,19 +3,34 @@ type NmrSpectrum {
     solvent: String
     temperature: Float
     frequency: Float
-    nucleus: [NmrNucleus]
+    nucleus: [String]
     date: Float
     dimension: Int
     experiment: String
     pulse: String
-    signal: [NmrSignal]
+    ranges: [NmrRange]
+    remark: String
+    jcampFID: File
+    jcamp: File
 }
 
-type NmrNucleus {
-
+type NmrRange {
+    from: Float
+    to: Float
+    integral: Float
+    publicationIntegral: Float
+    signals: [NmrSignal]
 }
 
 type NmrSignal {
     delta: Float
     multiplicity: String
+    assignments: [ID!]
+    publicationAssignment: String
+    couplingConstants: [CouplingConstant]
+}
+
+type CouplingConstant {
+    multiplicity: String
+    coupling: Float
 }

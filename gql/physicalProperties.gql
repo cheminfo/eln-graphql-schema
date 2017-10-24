@@ -1,0 +1,48 @@
+type PhysicalProperties {
+    boilingPoint: [TemperatureProperty]
+    meltingPoint: [TemperatureProperty]
+    decompositionTemperature: [TemperatureProperty]
+    density: [DensityProperty]
+    flashPoint: [TemperatureProperty]
+    refractiveIndex: [RefractiveIndexProperty]
+}
+
+type TemperatureProperty {
+    # If the exact value is not known, this indicates if the real value is lower or greater than the provided one.
+    lowerOrGreater: LowerOrGreater
+    low: Float
+    high: Float
+    pressure(unit: PressureUnit): Float
+}
+
+type DensityProperty {
+    low: Float
+    high: Float
+    temperature(unit: TemperatureUnit): Float
+    pressure(unit: PressureUnit): Float
+}
+
+type RefractiveIndexProperty {
+    low: Float
+    high: Float
+    temperature(unit: TemperatureUnit): Float
+    wavelength: Float
+}
+
+enum LowerOrGreater {
+    LOWER
+    GREATER
+}
+
+enum PressureUnit {
+    # Atmosphere
+    ATM
+    TORR
+    PSI
+}
+
+enum TemperatureUnit {
+    KELVIN
+    CELSIUS
+    FAHRENHEIT    
+}

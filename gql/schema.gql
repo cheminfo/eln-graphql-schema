@@ -1,7 +1,65 @@
-type Sample {
+type Entity {
+    id: ID!
+    code: [String]
+    title: String
+    description: String
+    keywords: [Keyword]
+    names: [Name]
+    molecule: Molecule
+    physical: PhysicalProperties
     spectra: Spectra
+}
+
+type Keyword {
+    kind: String
+    value: String
+}
+
+type Name {
+    value: String
+    language: Language
+    kind: NameKind
+}
+
+enum Language {
+    fr
+    en
+}
+
+enum NameKind {
+    abbreviation
+    iupac
+    common
+}
+
+type Molecule {
+    molfile: String
+    molecularFormula: String
+    molecularWeight: Float
+    monoisotopicMass: Float
+    ocl: OCL
+    inchi: Inchi
+}
+
+type OCL {
+    value: ID
+    coordinates: ID
+    # todo add logp, hdonor...
+}
+
+type Inchi {
+    standard: ID
+    key: ID
 }
 
 type Spectra {
     nmr: [NmrSpectrum]
+    mass: [MassSpectrum]
+    ir: [InfraredSpectrum]
+}
+
+type File {
+    filename: String
+    url: String
+    size: Float
 }
