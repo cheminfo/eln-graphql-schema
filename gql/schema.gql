@@ -54,12 +54,16 @@ type Inchi {
 
 type Spectra {
     nmr: [NmrSpectrum]
-    mass: [MassSpectrum]
-    ir: [InfraredSpectrum]
+#    mass: [MassSpectrum]
+#    ir: [InfraredSpectrum]
 }
 
 type File {
     filename: String
     url: String
     size: Float
+}
+
+type Query {
+    entity(id: ID): Entity
 }
