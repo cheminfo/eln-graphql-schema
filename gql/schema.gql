@@ -1,0 +1,7 @@
+type Sample {
+    spectra: Spectra
+}
+
+type Spectra {
+    nmr: [NmrSpectrum]
+}

@@ -1,11 +1,3 @@
-type Sample {
-    spectra: Spectra
-}
-
-type Spectra {
-    nmr: [NmrSpectrum]
-}
-
 type NmrSpectrum {
     description: String
     solvent: String
